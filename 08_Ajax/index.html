@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX</title>
+    <link href="assests/frm/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<section class="jumbotron">
+    <h1 id="display">Asynchronous JavaScript And XML Processing</h1>
+    <div class="btn-group">
+        <button class="btn btn-danger" id="btnText">Send Request For Text File</button>
+        <button class="btn btn-warning" id="btnXML">Send Request For XML File</button>
+        <button class="btn btn-primary" id="btnJSON">Send Request For JSON File</button>
+    </div>
+</section>
+
+<section class="container-fluid">
+    <div class="row">
+        <div class="col-6">
+            <h4>XML Records</h4>
+            <table class="table table-bordered table-hover">
+                <thead class="bg-danger text-white">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Address</th>
+                </tr>
+                </thead>
+                <tbody id="xmlBody">
+
+                </tbody>
+            </table>
+        </div>
+        <div class="col-6">
+            <h4>Json Record </h4>
+            <table class="table table-bordered table-hover">
+                <thead class="bg-danger text-white">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Address</th>
+                </tr>
+                </thead>
+                <tbody id="jsonBody">
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</section>
+
+
+<script src="assests/lib/jquery-3.5.1.min.js"></script>
+<script src="assests/frm/js/bootstrap.min.js"></script>
+<script>
+    // readyState - the state of the request
+    //status code - the status of response
+    // $("#btnText").click(function () {
+    //     // console.log("Started");
+    //     var http = new XMLHttpRequest();
+    //     // console.log(http.readyState);//0
+    //     http.open("GET", "db/db.txt", true);
+    //     // console.log(http.readyState)//1
+    //     http.onreadystatechange = function () {
+    //         // console.log(http.readyState)//2//3//4
+    //         if (http.readyState == 4 && http.status == 200) {
+    //             console.log(http.responseText);
+    //             $("#display").text(http.responseText);
+    //         }
+    //     }
+    //
+    //     http.send();
+    //     // console.log("Ended");
+    //
+    // });
+
+
+    $("#btnText").click(function () {
+
+        $.ajax({
+            method: "GET",
+            url: 'db/db.txt',
+            async: true,
+            success: function (e) {
+                console.log(e);
+                $("#display").text(e);
+            },
+            error: function (ob, textStates, error) {
+                console.log(error);
+                console.log(textStates);
+                console.log(ob);
+            }
+        });
+
+
+    });
+
+
+    $("#btnXML").click(function () {
+        $("#xmlBody").empty();
+        $.ajax({
+            url: "db/db.xml",
+            success: function (res) {
+                let count = $(res).children().children().children().length;
+                for (var i = 0; i < count; i++) {
+                    let id = $($($(res).children().children().children().get(i)).children().get(0)).text();
+                    let name = $($($(res).children().children().children().get(i)).children().get(1)).text();
+                    let address = $($($(res).children().children().children().get(i)).children().get(2)).text();
+
+                    var row = `<tr><td>${id}</td><td>${name}</td><td>${address}</td></tr>`;
+                    $("#xmlBody").append(row);
+                }
+            }
+        });
+
+
+    });
+
+
+    $("#btnJSON").click(function () {
+        $("#jsonBody").empty();
+        $.ajax({
+            url: 'db/db.json',
+            success: function (res) {
+                for (var i in res) {
+                    var id = res[i].id;
+                    var name = res[i].name;
+                    var address = res[i].address;
+                    var row = `<tr><td>${id}</td><td>${name}</td><td>${address}</td></tr>`;
+                    $("#jsonBody").append(row);
+                }
+            }
+        });
+    });
+
+
+
+</script>
+</body>
+</html>

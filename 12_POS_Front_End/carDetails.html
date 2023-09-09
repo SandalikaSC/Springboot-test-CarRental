@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Car Detail</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Varela+Round">
+    <link rel="stylesheet" href="assests/frm/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            font-family: 'Varela Round', sans-serif;
+        }
+        .form-control {
+            box-shadow: none;
+            border-radius: 4px;
+        }
+        .navbar {
+            background: #fff;
+            padding-left: 16px;
+            padding-right: 16px;
+            border-bottom: 1px solid #dfe3e8;
+            border-radius: 0;
+        }
+        .nav-link img {
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            margin: -8px 0;
+            float: left;
+            margin-right: 10px;
+        }
+        .navbar .navbar-brand {
+            padding-left: 0;
+            font-size: 20px;
+            padding-right: 50px;
+        }
+        .navbar .navbar-brand b {
+            color: #5c6ac4;
+        }
+        .navbar .form-inline {
+            display: inline-block;
+        }
+        .navbar .navbar-nav {
+            position: relative;
+        }
+        .navbar a, .navbar a:active {
+            color: #888;
+            font-size: 15px;
+            background: transparent;
+        }
+        .search-box {
+            position: relative;
+        }
+        .search-box input {
+            padding-right: 35px;
+            border-color: #dfe3e8;
+            border-radius: 4px !important;
+            box-shadow: none
+        }
+        .search-box .input-group-text {
+            min-width: 35px;
+            border: none;
+            background: transparent;
+            position: absolute;
+            right: 0;
+            z-index: 9;
+            padding: 7px;
+            height: 100%;
+        }
+        .search-box i {
+            color: #a0a5b1;
+            font-size: 19px;
+        }
+        .navbar .btn-primary, .navbar .btn-primary:active {
+            color: #fff;
+            background: #5c6ac4 !important;
+            padding-top: 8px;
+            padding-bottom: 6px;
+            border-radius: 4px;
+            vertical-align: middle;
+            border: none;
+            min-width: 120px;
+            margin: 2px 0;
+        }
+        .navbar .btn-primary:hover, .navbar .btn-primary:focus {
+            color: #fff;
+            background: #5765c1 !important;
+        }
+        .navbar .action-buttons .dropdown-toggle::after {
+            display: none;
+        }
+        .search-box .btn span {
+            transform: scale(0.9);
+            display: inline-block;
+        }
+        .navbar .nav-item i {
+            font-size: 18px;
+        }
+        .navbar .dropdown-item i {
+            font-size: 16px;
+            min-width: 22px;
+        }
+        .navbar .dropdown-menu {
+            border-radius: 1px;
+            border-color: #e5e5e5;
+            box-shadow: 0 2px 8px rgba(0,0,0,.05);
+        }
+        .navbar .navbar-nav .dropdown-menu a {
+            padding: 8px 20px;
+            line-height: normal;
+        }
+        .navbar .navbar-form {
+            border: none;
+        }
+        .navbar .navbar-form-wrapper {
+            padding: 0 15px;
+        }
+        .navbar .login-form label {
+            color: #888;
+            font-weight: normal;
+        }
+        .navbar .dropdown-menu.login-form {
+            width: 280px;
+            padding: 20px;
+            left: auto;
+            right: 0;
+            font-size: 14px;
+        }
+        .navbar .navbar-nav .dropdown-menu.login-form a {
+            padding: 0 !important;
+            color: #5c6ac4;
+            font-weight: normal;
+        }
+        .navbar .navbar-nav .dropdown-menu.login-form a:hover{
+            text-decoration: underline;
+        }
+        .navbar .dropdown-menu.login-form .checkbox-inline {
+            margin-top: 10px;
+        }
+        @media (min-width: 1200px){
+            .form-inline .input-group {
+                width: 300px;
+                margin-left: 30px;
+            }
+        }
+        @media (max-width: 768px){
+            .navbar .dropdown-menu.login-form {
+                width: 100%;
+                padding: 10px 15px;
+                background: transparent;
+                border: none;
+            }
+            .navbar .form-inline {
+                display: block;
+            }
+            .navbar .input-group {
+                width: 100%;
+            }
+            .navbar .navbar-nav .btn-primary, .navbar .navbar-nav .btn-primary:active {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a href="#" class="navbar-brand">Car<b>Rental</b></a>
+    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- Collection of nav links, forms, and other content for toggling -->
+    <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
+        <div class="navbar-nav">
+            <a href="#" class="nav-item nav-link">Car Details</a>
+        </div>
+
+
+    </div>
+</nav>
+
+
+<div style="background:mintcream" class="container mt-3 border border-top-0">
+
+    <form class="form1 m-3 " id="customerForm">
+
+        <div class="row" >
+            <div class="col-12 col-sm-6 col-md-3">
+
+                <div class="form-group">
+                    <label for="regid">Car Registration No</label>
+                    <input type="text" class="form-control" id="regid" aria-describedby="regidHelp" placeholder="ex : 364/BJ/45" required>
+                </div>
+
+            </div>
+            <div class="col-12 col-sm-6 col-md-3">
+
+                <div class="form-group">
+                    <label for="brand">Brand</label>
+                    <input type="text" class="form-control" id="brand" aria-describedby="nameHelp" placeholder="ex : Toyota">
+                </div>
+
+            </div>
+
+
+            <div class="col-12 col-sm-6 col-md-3">
+
+                <div class="form-group">
+                    <label for="colour">Colour</label>
+                    <input type="text" class="form-control" id="colour" aria-describedby="coloursHelp" placeholder="ex : Red">
+                </div>
+
+            </div>
+            <div class="col-12 col-sm-6 col-md-3">
+
+                <div class="form-group">
+                    <label for="passenger">No of passengers</label>
+                    <input type="number"   class="form-control" id="passenger" aria-describedby="passengersHelp" placeholder="ex : 3">
+                </div>
+
+            </div>
+            <div class="col-12 col-sm-6 col-md-3">
+
+                <label for="typeRadio"  class="col-form-label col-sm-2 pt-0" >Type</label>
+                <div class="col-sm-10" id="typeRadio">
+                    <div class="form-check">
+                        <input  class="form-check-input" type="radio" name="type" id="1" value="1" checked>
+                        <label class="form-check-label" for="1">
+                            Genaral
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input"  name="type" type="radio"   id="2" value="2">
+                        <label class="form-check-label" for="2">
+                           Premium
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input"  name="type" type="radio"   id="3" value="3">
+                        <label class="form-check-label" for="3">
+                           Luxury
+                        </label>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-3">
+
+                <legend class="col-form-label col-sm-2 pt-0">Transmission</legend>
+                <div class="col-sm-10" id="transmissionRadio">
+                    <div class="form-check">
+                        <input class="form-check-input" name="transmission" type="radio"  id="Auto" value="1" checked>
+                        <label class="form-check-label" for="Auto">
+                            Auto
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="transmission" id="Manual" value="2">
+                        <label class="form-check-label" for="Manual">
+                            Manual
+                        </label>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-6">
+
+                <legend class="col-form-label col-sm-2 pt-0">fuel</legend>
+                <div class="col-sm-10" id="fuel">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="fuel" id="Petrol" value="1" checked>
+                        <label class="form-check-label" for="Petrol">
+                            Petrol
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="fuel" id="Diesel" value="2">
+                        <label class="form-check-label" for="Diesel">
+                            Diesel
+                        </label>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="col-12 col-sm-6 col-md-3">
+
+                <div class="form-group">
+                    <label for="freekm">Free KM</label>
+                    <input type="number"   class="form-control" id="freekm" aria-describedby="kmHelp" placeholder="ex : 100">
+                </div>
+
+            </div>
+            <div class="col-12 col-sm-6 col-md-3">
+
+                <div class="form-group p-1">
+                    <label for="dailyRate" >Daily Rate</label>
+                    <input type="number" step="0.01" class="form-control" id="dailyRate" aria-describedby="dailyRateHelp" placeholder="ex : 100">
+                </div>
+
+            </div>
+            <div class="col-12 col-sm-6 col-md-3">
+
+                <div class="form-group p-1">
+                    <label for="monthrate" >Monthly Rate</label>
+                    <input type="number" step="0.01" class="form-control" id="monthrate" aria-describedby="dailyRateHelp" placeholder="ex : 12000">
+                </div>
+
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-3">
+
+                <div class="form-group">
+                    <label for="extrarate">Rate for extra KM</label>
+                    <input type="number"   class="form-control" id="extrarate" aria-describedby="passengersHelp" placeholder="ex : 200">
+                </div>
+
+            </div>
+
+
+            <div class="col-12 col-sm-6 col-md-3">
+
+                <form>
+                    <div class="form-group">
+                        <label for="Front">Front View</label>
+                        <input type="file" class="form-control-file" id="Front">
+                    </div>
+                </form>
+
+            </div>
+            <div class="col-12 col-sm-6 col-md-3">
+
+                <form>
+                    <div class="form-group">
+                        <label for="Back">Back View</label>
+                        <input type="file" class="form-control-file" id="Back">
+                    </div>
+                </form>
+
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-3">
+
+                <form>
+                    <div class="form-group">
+                        <label for="Side">Side View</label>
+                        <input type="file" class="form-control-file" id="Side">
+                    </div>
+                </form>
+
+            </div>
+            <div class="col-12 col-sm-6 col-md-3">
+
+                <form>
+                    <div class="form-group">
+                        <label for="Interior">Interior</label>
+                        <input type="file" class="form-control-file" id="Interior">
+                    </div>
+                </form>
+
+            </div>
+
+
+
+        </div>
+
+
+        <p  style="text-align: right">
+            <button class="btn btn-primary" id="btnSave" type="button">Save Car</button>
+            <button class="btn btn-danger" id="btnDelete" type="button">Delete Car</button>
+            <button class="btn btn-warning" id="btnUpdate" type="button">Update Car</button>
+        </p>
+
+
+
+        <!--        <p class="forgot" align="center"><a href="guest.html">Login as Guest</a></p>-->
+    </form>
+
+</div>
+
+<div class="m-5">
+    <table class="table ">
+        <thead>
+        <tr>
+            <th scope="col">Registration No</th>
+            <th scope="col">Type</th>
+            <th scope="col">Brand</th>
+            <th scope="col">Status</th>
+            <th scope="col">Colour</th>
+            <th scope="col">Transmission</th>
+            <th scope="col">Fuel</th>
+            <th scope="col">No of passengers</th>
+            <th scope="col">Daily Rate</th>
+            <th scope="col">Monthly Rate</th>
+            <th scope="col">Free Km</th>
+            <th scope="col">Extra KM Rate</th>
+        </tr>
+        </thead>
+        <tbody class="tBody" id="tBody">
+        </tbody>
+    </table>
+</div>
+
+
+<script src="assests/lib/jquery-3.5.1.min.js"></script>
+ <script src="assests/frm/js/bootstrap.min.js"></script>
+<script>
+
+
+    $("#btnSave").click(function () {
+        let regid = $("#regid").val();
+        let brand = $("#brand").val();
+        let status = "Available";
+        let color = $("#colour").val();
+        let noPassengers = $("#passenger").val();
+        let dailyRate = $("#dailyRate").val();
+        let monthlyRate = $("#monthrate").val();
+        let freeKmDay = $("#freekm").val();
+        let exKmRate = $("#extrarate").val();
+        let fuel = null;
+        let transmission = null;
+        var type = null;
+
+        ele = document.getElementsByName('fuel');
+        for (i = 0; i < ele.length; i++) {
+            if (ele[i].checked) {
+                fuel = ele[i].id;
+
+            }
+        }
+
+        ele = document.getElementsByName('transmission');
+        for (i = 0; i < ele.length; i++) {
+            if (ele[i].checked) {
+                transmission = ele[i].id;
+
+            }
+        }
+
+        var ele = document.getElementsByName('type');
+        for (i = 0; i < ele.length; i++) {
+            if (ele[i].checked) {
+                $.ajax({
+                    url: "http://localhost:8080/spring/api/v1/type/" + ele[i].id,
+                    success: function (res) {
+                        type = res.data;
+                        $.ajax({
+                            method: "post",
+                            url: "http://localhost:8080/spring/api/v1/cardetail",
+                            contentType: "application/json",
+                            data: JSON.stringify({
+                                "regid": regid,
+                                "type": type,
+                                "brand": brand,
+                                "status": "Available",
+                                "color": color,
+                                "transmission": transmission,
+                                "fuel": fuel,
+                                "noPassengers": parseInt(noPassengers),
+                                "dailyRate": parseFloat(dailyRate),
+                                "monthlyRate": parseFloat(monthlyRate),
+                                "freeKmDay": parseInt(freeKmDay),
+                                "exKmRate": parseFloat(exKmRate)
+
+                            }),
+                            success: function (res) {
+                                if (res.message == "Success") {
+                                    alert("New Car Added");
+
+                                } else {
+                                    alert(res.data);
+                                }
+
+
+                            }
+                        });
+
+
+                    }
+                });
+                loadAllCar();
+            }
+
+
+        }
+
+        })
+    loadAllCar();
+    function loadAllCar() {
+
+
+            $("#tBody").empty();
+            $.ajax({
+                url: "http://localhost:8080/spring/api/v1/cardetail",
+                method: "GET",
+                contentType: "application/json",
+                success: function (res) {
+
+                            let data = res.data;
+
+
+                            for (var i in data) {
+                                let regid = data[i].regid;
+                                let type = data[i].type.type;
+                                let brand = data[i].brand;
+                                let status = data[i].status;
+                                let color = data[i].color;
+                                let transmission = data[i].transmission;
+                                let fuel = data[i].fuel;
+                                let noPassengers = data[i].noPassengers;
+                                let dailyRate = data[i].dailyRate;
+                                let monthlyRate = data[i].monthlyRate;
+                                let freeKmDay = data[i].freeKmDay;
+                                let exKmRate = data[i].exKmRate;
+
+
+                                var row = `<tr><td>${regid}</td>
+                                                <td>${type}</td>
+                                                <td>${brand}</td>
+                                                <td>${status}</td>
+                                                <td>${color}</td>
+                                                <td>${transmission}</td>
+                                                <td>${fuel}</td>
+                                                <td>${noPassengers}</td>
+                                                <td>${dailyRate}</td>
+                                                <td>${monthlyRate}</td>
+                                                <td>${freeKmDay}</td>
+                                                <td>${exKmRate}</td>
+                                                </tr>`;
+                                $("#tBody").append(row);
+
+                            }
+                        }
+                    });
+
+    }
+    $("#regid").on('keypress', function (e) {
+    if (e.code == "Enter") {
+        let regid = $("#regid").val();
+        $.ajax({
+            url: "http://localhost:8080/spring/api/v1/cardetail/" + regid,
+            success: function (res) {
+                console.log(res);
+                let car = res.data;
+
+                $("#regid").val(car.regid);
+                $("#brand").val(car.brand);
+               $("#colour").val(car.color);
+                $("#passenger").val(car.noPassengers);
+              $("#dailyRate").val(car.dailyRate);
+                $("#monthrate").val(car.monthlyRate);
+                 $("#freekm").val(car.freeKmDay);
+                 $("#extrarate").val(car.exKmRate);
+                $('#' + car.fuel).prop('checked',true);
+                $('#' + car.transmission).prop('checked',true);
+                $('#' + car.type.tid).prop('checked',true);
+
+
+            }
+        });
+    }
+});
+
+$("#btnUpdate").click(function () {
+
+    let regid = $("#regid").val();
+    let brand = $("#brand").val();
+    let status = "Available";
+    let color = $("#colour").val();
+    let noPassengers = $("#passenger").val();
+    let dailyRate = $("#dailyRate").val();
+    let monthlyRate = $("#monthrate").val();
+    let freeKmDay = $("#freekm").val();
+    let exKmRate = $("#extrarate").val();
+    let fuel = null;
+    let transmission = null;
+    var type = null;
+
+    ele = document.getElementsByName('fuel');
+    for (i = 0; i < ele.length; i++) {
+        if (ele[i].checked) {
+            fuel = ele[i].id;
+
+        }
+    }
+
+    ele = document.getElementsByName('transmission');
+    for (i = 0; i < ele.length; i++) {
+        if (ele[i].checked) {
+            transmission = ele[i].id;
+
+        }
+    }
+    var ele = document.getElementsByName('type');
+    for (i = 0; i < ele.length; i++) {
+        if (ele[i].checked) {
+            $.ajax({
+                url: "http://localhost:8080/spring/api/v1/type/" + ele[i].id,
+                success: function (res) {
+                    type = res.data;
+                    $.ajax({
+                        method: "put",
+                        url: "http://localhost:8080/spring/api/v1/cardetail",
+                        contentType: "application/json",
+                        data: JSON.stringify({
+                            "regid": regid,
+                            "type": type,
+                            "brand": brand,
+                            "status": "Available",
+                            "color": color,
+                            "transmission": transmission,
+                            "fuel": fuel,
+                            "noPassengers": parseInt(noPassengers),
+                            "dailyRate": parseFloat(dailyRate),
+                            "monthlyRate": parseFloat(monthlyRate),
+                            "freeKmDay": parseInt(freeKmDay),
+                            "exKmRate": parseFloat(exKmRate)
+                        }),
+                        success: function (res) {
+                            if (res.message == "Success") {
+                                alert("car Updated");
+
+                            } else {
+                                alert(res.data);
+                            }
+                            loadAllCar();
+                        }
+                    });
+                }
+            });
+
+        }
+    }
+})
+$("#btnDelete").click(function (){
+    let regid=$("#regid").val();
+    $.ajax({
+        method:"delete",
+        url:"http://localhost:8080/spring/api/v1/cardetail?regid="+regid,
+        success:function (res){
+            if (res.message == "Success") {
+                alert("Car Removed..!");
+            } else {
+                alert(res.data);
+            }
+            loadAllCar();
+        }
+    });
+});
+</script>
+</body>
+</html>

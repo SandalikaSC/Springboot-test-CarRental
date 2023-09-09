@@ -1,0 +1,317 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+
+    <!--        <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assests/frm/css/bootstrap.min.css">
+    <title>Register</title>
+    <style>
+
+        body {
+
+            background-color: whitesmoke;
+            font-family: 'Ubuntu', sans-serif;
+        }
+       .title{
+            color: #8C55AA;
+            font-family: 'Ubuntu', sans-serif;
+            font-weight: bold;
+            font-size: 40px;
+           padding-top: 10px;
+        }
+
+        .main {
+            background-color: white;
+            position: relative;
+            width: 1000px;
+            height: 600px;
+            margin: 2em auto;
+            border: #9C27B0 solid 1px ;
+            border-radius: 1.5em;
+            box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+        }
+
+        .sign {
+            padding-top: 40px;
+            color: #8C55AA;
+            font-family: 'Ubuntu', sans-serif;
+            font-weight: bold;
+            font-size: 40px;
+        }
+
+        .un {
+            width: 76%;
+            color: rgb(38, 50, 56);
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 1px;
+            background: rgba(136, 126, 126, 0.04);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            outline: none;
+            box-sizing: border-box;
+            border: 2px solid rgba(0, 0, 0, 0.02);
+            margin-bottom: 50px;
+            margin-left: 46px;
+            text-align: center;
+            margin-bottom: 27px;
+            font-family: 'Ubuntu', sans-serif;
+        }
+
+        form.form1 {
+            padding: 30px;
+        }
+
+        .pass {
+            width: 76%;
+            color: rgb(38, 50, 56);
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 1px;
+            background: rgba(136, 126, 126, 0.04);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            outline: none;
+            box-sizing: border-box;
+            border: 2px solid rgba(0, 0, 0, 0.02);
+            margin-bottom: 50px;
+            margin-left: 46px;
+            text-align: center;
+            margin-bottom: 27px;
+            font-family: 'Ubuntu', sans-serif;
+        }
+
+
+        .un:focus, .pass:focus {
+            border: 2px solid rgba(0, 0, 0, 0.18) !important;
+
+        }
+
+        .submit {
+            cursor: pointer;
+            border-radius: 5em;
+            color: #fff;
+            background: linear-gradient(to right, #9C27B0, #E040FB);
+            border: 0;
+            padding-left: 40px;
+            padding-right: 40px;
+            padding-bottom: 10px;
+            padding-top: 10px;
+            font-family: 'Ubuntu', sans-serif;
+            margin-left: 35%;
+            font-size: 13px;
+            box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+        }
+
+        .forgot {
+            text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
+            color: #E1BEE7;
+            padding-top: 15px;
+        }
+
+        a {
+            /*text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);*/
+            color: #9C27B0;
+            text-decoration: none
+        }
+
+        @media (max-width: 600px) {
+            .main {
+                border-radius: 0px;
+            }
+        }
+
+
+    </style>
+</head>
+
+<body>
+<p class="title" align="center">Register</p>
+<div class="main" >
+
+
+    <form class="form1" id="customerForm">
+
+        <div class="row" >
+            <div class="col-12 col-sm-12 col-md-12">
+
+                <div class="form-group">
+                    <label for="username">User Name</label>
+                    <input type="text" class="form-control" id="username" aria-describedby="usenameHelp">
+                </div>
+
+            </div>
+            <div class="col-12 col-sm-12 col-md-12">
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" aria-describedby="pwHelp">
+                </div>
+
+            </div>
+
+
+            <div class="col-12 col-sm-6 col-md-3">
+
+                <div class="form-group">
+                    <label for="customerId">Id</label>
+                    <input type="text" class="form-control" id="customerId" aria-describedby="idHelp" placeholder="ex : C-001">
+                </div>
+
+            </div>
+            <div class="col-12 col-sm-6 col-md-3">
+
+                <div class="form-group">
+                    <label for="customerName">Name</label>
+                    <input type="text" class="form-control" id="customerName" aria-describedby="nameHelp" placeholder="ex : Nimal">
+                </div>
+
+            </div>
+
+
+            <div class="col-12 col-sm-6 col-md-3">
+
+                <div class="form-group">
+                    <label for="customerContact">Contact No</label>
+                    <input type="text" class="form-control" id="customerContact" aria-describedby="contactHelp" placeholder="ex : 0714458789">
+                </div>
+
+            </div>
+            <div class="col-12 col-sm-6 col-md-3">
+
+                <div class="form-group">
+                    <label for="customerEmail">Email</label>
+                    <input type="text" class="form-control" id="customerEmail" aria-describedby="emailHelp" placeholder="ex :Nimal@gmail.com">
+                </div>
+
+            </div>
+            <div class="col-12 col-sm-6 col-md-3">
+
+                <div class="form-group">
+                    <label for="customerNIC">NIC</label>
+                    <input type="text" class="form-control" id="customerNIC" aria-describedby="nicHelp" placeholder="ex : 200064703151">
+                </div>
+
+            </div>
+
+
+                <div class="col-12 col-sm-6 col-md-3">
+
+                    <form>
+                        <div class="form-group">
+                            <label for="NICsourse">NIC Source</label>
+                            <input type="file" class="form-control-file" id="NICsourse">
+                        </div>
+                    </form>
+
+                </div>
+            <div class="col-12 col-sm-6 col-md-3">
+
+                <form>
+                    <div class="form-group">
+                        <label for="drivesourse">Driven Lisence Source</label>
+                        <input type="file" class="form-control-file" id="drivesourse">
+                    </div>
+                </form>
+
+            </div>
+
+            <div class="col-12">
+
+                <div class="form-group">
+                    <label for="address">Customer Address</label>
+                    <textarea class="form-control" id="address" rows="3" placeholder="address here"></textarea>
+                </div>
+
+            </div>
+            <div style="position: relative; right: 0;left: 0;margin: auto">
+                <button id="btn-register" type="button" class="submit" align="center">Register</button>
+            </div>
+        </div>
+
+
+
+
+
+
+<!--        <p class="forgot" align="center"><a href="guest.html">Login as Guest</a></p>-->
+    </form>
+
+</div>
+<script src="assests/lib/jquery-3.5.1.min.js"></script>
+<script src="assests/frm/js/bootstrap.min.js"></script>
+<script>
+    $("#btn-register").click(function () {
+
+        let id = $("#customerId").val();
+        let name = $("#customerName").val();
+        let email = $("#customerEmail").val();
+        let address = $("#address").val();
+        let contact = $("#customerContact").val();
+        let nic = $("#customerNIC").val();
+        // let nicPic = $("#NICsourse").val();
+// let  nicSource=$("#NICsourse").
+
+        let username = $("#username").val();
+        let password = $("#password").val();
+
+
+        $.ajax({
+            method: "post",
+            url: "http://localhost:8080/spring/api/v1/user",
+            contentType: "application/json",
+            data: JSON.stringify({
+                "username": username,
+                "type": 1,
+                "password": password
+
+            }),
+            success: function (res) {
+
+                if (res.message == "Success") {
+                    $.ajax({
+                        method:"post",
+                        url: "http://localhost:8080/spring/api/v1/register",
+                        contentType: "application/json",
+                        data: JSON.stringify({
+                            "id": id,
+                            "name": name,
+                            "email": email,
+                            "address": address,
+                            "contact": contact,
+                            "nic": nic
+                            // "nicPic" : nicPic
+                        }),
+                        success: function (res) {
+                            if (res.message == "Success") {
+                                alert("Customer Added");
+                                window.location.href = "RegUserDash.html";
+                            } else {
+                                alert(res.data);
+                            }
+
+
+                        }
+                    });
+
+                } else {
+                    alert(res.data);
+                }
+
+
+            }
+        });
+    });
+
+
+
+
+</script>
+</body>
+
+</html>
